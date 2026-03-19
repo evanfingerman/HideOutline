@@ -1,0 +1,942 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* General styles */
+.slide-container {
+  position: relative; /* Enables positioning of elements within this container */
+  max-width: 1200px; /* Matches the width of the slide-image */
+  margin: 0; /* Centers the container */
+}
+
+.rendered-markdown:focus {
+    outline: none;
+}
+
+.slide-image {
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  object-fit: cover;
+}
+
+.page-number {
+  position: absolute;
+  bottom: -25px; 
+  right: 10px; /* Align to the right edge of the container */
+  font-family: poppins;
+  font-size: clamp(4px, 1vw, 16px);
+  font-weight: 400;
+  color: black;
+}
+
+.page-number-exercise {
+  position: absolute;
+  bottom: -15px; 
+  right: 10px; /* Align to the right edge of the container */
+  font-family: poppins;
+  font-size: clamp(4px, 1vw, 16px);
+  font-weight: 400;
+  color: black;
+}
+.copyright-white,
+.copyright {
+  position:absolute;
+  left:36%;
+  font-size: .8vw;
+  bottom:3%;
+}
+.copyright-white {
+  color:white;
+}
+
+.copyright-exercise {
+  position:absolute;
+  left:36%;
+  font-size: .8vw;
+  bottom:0.5%;
+}
+
+#reveal-button,
+#reveal-button-important,
+#reveal-button-definitions,
+#reveal-button-key,
+#reveal-button-icon,
+#reveal-button-summary,
+#reveal-button-expectations,
+#reveal-button-challenging {
+  position: absolute;
+  bottom: -10px;
+  transform: translateY(-50%); /* Adjust for perfect centering */
+  right: -60px; /* Adjust distance from the slide container */
+  padding: 5px 10px;
+  font-size: 1.2vw;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  color: #203864;
+  background-color:#efefef;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#reveal-button:hover,
+#reveal-button-key:hover,
+#reveal-button-icon:hover,
+#reveal-button-important:hover,
+#reveal-button-summary:hover,
+#reveal-button-expectations:hover,
+#reveal-button-challenging:hover {
+  background-color: #d2d2d2;
+}
+
+/* Button fades out before disappearing */
+#reveal-button.hide-button,
+#reveal-button-key.hide-button,
+#reveal-button-icon.hide-button,
+#reveal-button-challenging.hide-button,
+#reveal-button-summary.hide-button,
+#reveal-button-expectations.hide-button,
+#reveal-button-important.hide-button {
+  opacity: 0;
+  pointer-events: none; /* Prevents interaction during fade */
+}
+
+
+/* Title page */
+
+.workshop-date{
+  position: absolute;
+  font-size: 1.3vw;
+  font-family: poppins;
+  font-weight: 500;
+  color: black;
+  text-align:left;
+  left:4%;
+  margin-top: -80px
+}
+.workshop-title {
+  position: absolute;
+  font-size: clamp(16px, 3.8vw, 48px);
+  font-family: poppins;
+  font-weight: 500;
+  color: black;
+  text-align:left;
+  left:4%;
+  top: 28%;
+  margin-right: 25%;
+  line-height: 1.1;
+}
+
+.workshop-subtitle {
+  position: absolute;
+  font-size: clamp(8px, 2.0vw, 20px);
+  font-family: poppins;
+  font-style: italic;
+  font-weight: 400;
+  color: black;
+  text-align:left;
+  left:4%;
+  right:0%;
+  top: 54%;
+  line-height: 1.1;
+  margin-right: 55%;
+  overflow-wrap: break-word;
+}
+
+/* section break page*/
+.section-break-container {
+  position: absolute;
+  text-align:left;
+  top: 5%;
+  left: 10%;
+  width: 50%;
+  height: 86%;
+  max-height: 800px;
+  overflow: auto;
+}
+.section-title {
+  position: absolute;
+  font-size: clamp(16px, 5.0vw, 72px);
+  font-family: poppins;
+  font-weight: 700;
+  color: white;
+  text-align:left;
+  top: 32%;
+  margin-right: 25%;
+  line-height: 1.1;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.section-subtitle {
+  position: absolute;
+  font-size: clamp(8px, 2.0vw, 36px);
+  font-family: poppins;
+  font-weight: 600;
+  color: white;
+  text-align:left;
+  top: 15%;
+  line-height: 1.1;
+  margin-right: 55%;
+  overflow-wrap: break-word;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+/* Learning Objectives */
+
+.learning-objectives-container {
+  position: absolute;
+  font-size: clamp(4px, 1.8vw, 18px);
+  font-family: poppins;
+  font-weight: 400;
+  color: #203864;
+  text-align:left;
+  left:34%;
+  top: 5%;
+  width: 63%;
+  height: 89%;
+  max-height: 800px;
+  overflow: auto;
+}
+
+#learning-objectives-wrapper {
+  font-size: clamp(8px, 1.8vw, 20px);
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #203864;
+}
+
+.learning-objectives-header {
+  font-size: clamp(4px, 1.8vw, 26px);
+  font-family: poppins;
+  font-weight: 700;
+  color: #203864;
+  text-align: left;
+  margin-left: 4;
+  margin-bottom: .1em;
+  padding-left: 4;
+  display: block; /* Ensures it spans full width */
+  position: relative;
+  left: 0em;
+}
+
+.learning-objectives-bullets-apply,
+.learning-objectives-bullets {
+  list-style-type: none;
+  font-family: poppins;
+  font-weight: 400;
+  line-height: 1.2; /* Adjust line height for readability */
+  color: #000000;
+  /* padding-left:  -1em;  */
+}
+
+#learning-objectives-bullets-apply li,
+#learning-objectives-bullets li {
+  position: relative;
+  padding-left: 1em; /* Moves the bullet points to the right */
+  margin-bottom: 1.0em;
+  text-indent: -1.9em; /* Align wrapped text with the first line */
+}
+
+.learning-objectives-bullets-apply li:before,
+.learning-objectives-bullets li:before {
+  content: "🎯"; 
+  left: 0;
+  margin-right: 0.8em;
+}
+
+.learning-objectives-header::before {
+  content: none !important; /* Removes the bullet */
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Expectations vs Reality page */
+.expectations-container {
+  position: absolute;
+  /* font-size: clamp(8px, 3.0vw, 36px); */
+  font-family: poppins;
+  font-weight: 700;
+  color: white;
+  text-align:left;
+  left:5%;
+  top: 50%;
+  width: 40%;
+  height: 36%;
+  overflow: auto;  
+}
+.reality-container {
+  position: absolute;
+  display: none;
+  /* font-size: clamp(8px, 3.0vw, 36px); */
+  font-family: poppins;
+  font-weight: 700;
+  color: white;
+  text-align:left;
+  left:59%;
+  top: 50%;
+  width: 38%;
+  height: 36%;
+  overflow: auto;  
+}
+/* Knowledge Check page */
+.quiz-container {
+  position: absolute;
+  font-size: clamp(8px, 1.4vw, 22px);
+  font-family: poppins;
+  font-weight: 500;
+  color: #203864;
+  text-align:left;
+  left:34%;
+  top: 10%;
+  width: 60%;
+  height: 80%;
+  max-height: 800px;
+  overflow: auto;
+}
+
+/* Bullet Build with Icons Page*/
+/* Key Concepts with Icons  */
+.icon-build-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-weight: 400;
+}
+
+.icon-build-list li {  /*Style for individual list items* */
+  flex-direction: row;
+  opacity:0;
+  visibility: hidden; 
+  display: flex;
+  align-items: flex-start; /* Align text and image vertically */
+  margin-bottom: 1.0%; /* Space between list items */
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  line-height: 1.3;
+}
+
+.icon-build-list li.show { /* Styles for list items when they are shown */
+  display:flex;
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Ensure visibility */
+}
+
+.icon-build-list li img { /* Styles for images inside list items */
+  width: 40px; /* Adjust image width */
+  height: auto;
+  max-height: 40px; /* Maintain aspect ratio */
+  object-fit: contain;
+  margin-right: 5%; /* Space between the image and text */
+  margin-left: 0;
+}
+
+.icon-build-list li strong { /* Styles for strong text inside list items */
+  font-size: clamp(4px, 1.4vw, 20px);
+  margin-bottom: 5px; /* Add some spacing below the title */
+}
+
+ul.icon-build-list li p { /* Styles for paragraph text inside list items */
+  font-size: clamp(4px, .4vw, 14px);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+#icon-build-list li:first-child { /* Ensure the first list item is always visible */
+  opacity: 1;
+  visibility: visible;
+}
+
+.icon-build-container {
+  position: absolute;
+  font-size: 2vw;
+  font-family: poppins;
+  font-weight: 700;
+  color: #203864;
+  text-align:left;
+  left:36%;
+  top: 10%;
+  width: 60%;
+  height: 90%;
+  max-height: 750px;
+  overflow: auto;
+  margin-right: 7%;
+}
+
+.icon-build-container2 {
+  position: absolute;
+  font-size: 2vw;
+  font-family: poppins;
+  font-weight: 700;
+  color: #203864;
+  text-align:left;
+  left:8%;
+  top: 10%;
+  width: 90%;
+  height: 90%;
+  max-height: 750px;
+  overflow: auto;
+  margin-right: 7%;
+}
+
+.icon-build-text-content {
+  display: flex;
+  flex-direction: column; /* Align text vertically */
+  justify-content: flex-start; /* Vertically center the text inside the div */
+  font-size: clamp(4px, 1.2vw, 16px);
+  overflow-wrap: break-word;
+  align-self: flex-start;
+  max-width: 900px;
+}
+
+.icon-build-text-content2 {
+  display: flex;
+  flex-direction: column; /* Align text vertically */
+  justify-content: flex-start; /* Vertically center the text inside the div */
+  font-size: clamp(4px, 1.4vw, 20px);
+  overflow-wrap: break-word;
+  align-self: flex-start;
+  max-width: 900px;
+}
+
+/* Resources Page */
+.resources-container {
+  position: absolute;
+  font-family: poppins;
+  font-weight: 500;
+  color: #203864;
+  text-align:left;
+  left:34%;
+  top: 10%;
+  width: 60%;
+  height: 80%;
+  max-height: 800px;
+  overflow: auto;
+}
+#resources-wrapper {
+  font-size: clamp(8px, 1.8vw, 20px); /* this gets overwritten by JS */
+  font-family: poppins, sans-serif;
+  line-height: 1.3;
+  color: #203864;
+}
+
+.link-list {
+  list-style: disc; 
+  padding: 0;       
+  margin: 2px;  
+  max-width: 100%;
+  word-wrap: break-word;      
+}
+
+.link-list li {
+  margin-bottom: 10px; /* Add space between links */
+  margin-left: 1.2vw;
+}
+
+.link-list a {
+  text-decoration: none; /* Remove underline */
+  color: #327ABC;        /* Set a link color */
+  /* font-size: .85em;         */
+}
+
+.link-list a:hover {
+  text-decoration: none; /* Underline on hover for clarity */
+  color: #203864;             /* Darker shade on hover */
+}
+
+/* Key Definitions Page */
+.key-definitions-container {
+  position: absolute;
+  top: 12%;
+  left: 31%;
+  width: 64%;
+  height: 78%;
+  overflow: hidden;
+}
+
+.key-definitions {
+  list-style-type: none;
+  font-size: clamp(4px, 1.4vw, 20px);
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #203864;
+  padding-left: 2em;
+  margin: 0;
+  padding-top: 0;
+}
+
+#key-definitions li {
+  position: relative;
+  padding-left: 1.8em;
+  margin-bottom: 1.4em;
+  display: none;
+}
+
+.key-definitions li::before {
+  content: "→"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  margin-right: 0.2em;
+}
+
+#key-definitions li:first-child {
+  display: list-item;
+}
+
+/* Why it's Important page */
+.why-its-important {
+  list-style-type: none;
+  font-size: clamp(4px, 1.4vw, 20px);
+  font-family: poppins;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #203864;
+  padding-left: 2em;
+  margin: 0;
+  padding-top: 0;
+}
+.why-its-important-container {
+  position: absolute;
+  top: 12%;
+  left: 31%;
+  width: 64%;
+  height: 78%; /* Adjust based on your visual design */
+  overflow: hidden;
+}
+
+#why-its-important li {
+  position: relative;
+  padding-left: 1.8em; /* Moves the entire block of text back to align */
+  margin-bottom: 1.4em;
+  display: none;
+}
+
+.why-its-important li::before {
+  content: "❗️"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  margin-right: 0.2em;
+}
+#why-its-important li:first-child {
+  display: list-item;
+}
+
+/*How it Works infographic build */
+.how-it-works-text {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0px;
+  left:34%;
+  top: 5%;
+  width: 64%;
+  height: 86%;
+  max-height: 800px;
+  overflow: auto;
+}
+
+.how-it-works-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+  padding: 0;
+  margin: 0;  
+}
+
+.how-it-works-list li {
+  flex: 1;
+  text-align: center;
+  opacity:0;
+  visibility: hidden; 
+  display: none;
+  align-items: center; /* Align text and image vertically */
+  /* transform: translateY(20px) ; */
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  margin: 0;
+  padding: 0;
+  position: relative
+}
+
+.how-it-works-list li.show {
+  display:flex;
+  justify-content: center;
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Ensure visibility */
+  /* transform: translateY(0); */
+}
+
+.how-it-works-list li img { 
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+  margin:0;
+  vertical-align: middle;
+}
+
+#how-it-works-list li:first-child {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Key Concepts Page */
+.key-concepts-container {
+  position: absolute;
+  top: 12%;
+  left: 31%;
+  width: 64%;
+  height: 78%;
+  overflow: hidden;
+}
+
+.key-concepts {
+  list-style-type: none;
+  font-size: clamp(4px, 1.4vw, 20px);
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #203864;
+  padding-left: 2em;
+  margin: 0;
+  padding-top: 0;
+}
+
+#key-concepts li {
+  position: relative;
+  padding-left: 1.8em;
+  margin-bottom: 1.4em;
+  display: none;
+}
+
+.key-concepts li::before {
+  content: "💡"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  margin-right: 0.2em;
+}
+
+#key-concepts li:first-child {
+  display: list-item;
+}
+
+/* Key Concepts with Icon Page */
+.icon-container {
+  position: absolute;
+  top: 3%;
+  left: 54%;
+  width: clamp(100px, 30%, 300px);
+  height: 26%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: clamp(4px, 2.8vw, 28px);
+  font-family: poppins, sans-serif;
+  font-weight: 500;
+  color: #203864;
+  text-align: center;
+  line-height: 1.2;
+  overflow: hidden;
+  padding: 0.5em 0;
+}
+
+.icon-container p {
+  margin-bottom: 0;
+}
+
+.icon-container img {
+  margin-top: 0;
+}
+
+.icon {
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+  padding-bottom: 0.1em;
+  margin-top: 0;
+}
+
+/* Main text container for the bullet list */
+.key-concepts-text-container {
+  position: absolute;
+  top: 36%;
+  left: 34%;
+  width: 64%;
+  height: 56%;
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.key-concepts-with-icon {
+  list-style-type: none;
+  font-size: clamp(4px, 1.2vw, 18px);
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #203864;
+  padding-left: 2em;
+  margin: 0;
+}
+
+.key-concepts-with-icon li {
+  position: relative;
+  padding-left: 1.8em;
+  margin-bottom: 1.4em;
+  display: none; /* default hidden for reveal */
+}
+
+.key-concepts-with-icon li::before {
+  content: "💡";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2em; /* Optional size adjustment */
+}
+
+
+/* Why it's Challenging page */
+.challenging-text-container {
+  position: absolute;
+  font-size: 1.8vw;
+  font-family: poppins;
+  font-weight: 400;
+  color: #203864;
+  text-align:left;
+  left:34%;
+  top: 5%;
+  width: 64%;
+  height: 86%;
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.challenging {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  list-style-type: none;
+  position: absolute;
+  font-size: clamp(4px, 1.4vw, 22px);
+  font-family: poppins;
+  font-weight: 400;
+  top: 5%;
+  margin-right: 22px;
+  line-height: 1.2; /* Adjust line height for readability */
+  color: #203864;
+  padding-left: 2em; /* Adds space to align text after the bullet */
+}
+
+#challenging li {
+  position: relative;
+  padding-left: 1.8em; /* Moves the entire block of text back to align */
+  margin-bottom: 1.6em;
+  display: none;
+  
+}
+
+.challenging li::before {
+  content: "⚠️"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  margin-right: 0.2em;
+}
+#challenging li:first-child {
+  display: list-item;
+}
+
+/* Key Takeaways page */
+.summary-text-container {
+  position: absolute;
+  font-size: 1.8vw;
+  font-family: poppins;
+  font-weight: 400;
+  color: #203864;
+  text-align:left;
+  left:34%;
+  top: 5%;
+  width: 64%;
+  height: 86%;
+  max-height: 800px;
+  overflow: auto;
+}
+.summary-text-container2 {
+  position: absolute;
+  font-size: 1.8vw;
+  font-family: poppins;
+  font-weight: 400;
+  color: #203864;
+  text-align:left;
+  left:30%;
+  top: 10%;
+  width: 64%;
+  height: 80%;
+  max-height: 800px;
+  overflow: auto;
+}
+
+.summary-header {
+  font-size: 1.8vw;
+  font-family: poppins;
+  font-weight: 700;
+  color: #203864;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+  display: block; /* Ensures it spans full width */
+  position: relative;
+}
+
+.summary-list-container {
+  position: absolute;
+  top: 16%;
+  left: 30.5%;
+  width: 64%;
+  height: 72%; /* Adjust based on your layout */
+  overflow: hidden;
+}
+
+.summary {
+  list-style-type: none;
+  font-size: clamp(4px, 1.3vw, 22px);
+  font-family: poppins;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #203864;
+  padding-left: 2em;
+  margin: 0;
+}
+
+
+#summary > li {
+  position: relative;
+  padding-left: 1.8em; /* Moves the entire block of text back to align */
+  margin-bottom: 1.6em;
+  display: none;
+}
+
+.summary > li::before {
+  content: "✔️"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  margin-right: 0.2em;
+}
+#summary li:first-child {
+  display: list-item;
+}
+
+.summary li img {
+  margin-left: 0; /* Removes extra margin on the left */
+  margin-right: 1em; /* Adds space between the image and text */
+  margin-top: 1em;
+  width: 90%; /* Adjust the width as needed */
+  max-width: 800px; /* Prevents the image from growing too large */
+  height: auto; /* Maintains aspect ratio */
+  align-self: flex-start; /* Aligns the image with the start of the text */
+}
+
+.nested-list {
+  list-style-type: circle; /* Circle bullets for nested list */
+  margin-left: 30px; /* Indentation for nested list */
+  margin-top:1%;
+  margin-bottom: 0;
+  font-size: clamp(4px, 1.2vw, 18px); /* Slightly smaller font for nested items */
+}
+
+/* basic bullet list */
+.basic-list {
+  list-style-type: none;
+  position: absolute;
+  font-size: clamp(4px, 1.5vw, 22px);
+  font-family: poppins;
+  font-weight: 400;
+  top: 12%;
+  left: 31%;
+  margin-right: 22px;
+  line-height: 1.3; /* Adjust line height for readability */
+  color: #203864;
+  padding-left: 2em; /* Adds space to align text after the bullet */
+}
+
+#basic-list li {
+  position: relative;
+  padding-left: 1.2em; /* Moves the entire block of text back to align */
+  margin-bottom: 1.8em;
+  display: none;
+}
+
+.basic-list li::before {
+  content: "•"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  margin-right: 0.2em;
+}
+#basic-list li:first-child {
+  display: list-item;
+}
+
+/* Fade-in animation for revealed list items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Next Steps */
+
+.next-steps-container {
+  position: absolute;
+  font-size: clamp(4px, 1.8vw, 18px);
+  font-family: poppins;
+  font-weight: 400;
+  color: #203864;
+  text-align: left;
+  left: 38%;
+  top: 5%;
+  width: 58%;
+  height: 89%;
+  max-height: 800px;
+  overflow: auto;
+}
+
+#next-steps-wrapper {
+  font-size: clamp(8px, 1.8vw, 20px);
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #203864;
+}
+
+.next-steps-header {
+  list-style-type: none; /* Optional: only if still using <li> for header */
+  font-size: clamp(4px, 1.8vw, 26px);
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+ul {
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #203864;
+  padding-left: 1.5em; /* standard bullet indent */
+}
+
+li {
+  margin-bottom: 0.8em;
+}
